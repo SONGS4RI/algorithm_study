@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-// 시간복잡도 oN
+// 시간복잡도 o(N)
 int func1(int n)
 {
     int sum=0;
