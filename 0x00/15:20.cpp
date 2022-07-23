@@ -7,7 +7,7 @@ int func2(int arr[],int n)
     {
         for(int j=i+1;j<n;j++)
         {
-            if(arr[i]==arr[j]) return 1;
+            if(arr[i]+arr[j]==100) return 1;
         }
     }
     return 0;
@@ -16,6 +16,7 @@ int main()
 {
     int n,arr[1000];
     cin >> n;
+    for(int i=0;i<n;i++) cin >> arr[i];
     cout << func2(arr,n);
     return 0;
 }
