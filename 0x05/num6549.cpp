@@ -31,5 +31,6 @@ int main(){
         cout << area << '\n';
         cin >> n;
     }
+    
     return 0;
 }
