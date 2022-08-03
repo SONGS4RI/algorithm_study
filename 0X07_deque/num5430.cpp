@@ -10,19 +10,23 @@ int main(){
     while(t--){
         deque<int> d;
         cin >> s >> n;
-        for(int i=0;i<n;i++){
-            cin >> trash >> num;
-            d.push_back(num);
-        }
         cin >> trash;
+        if(n>0){
+            while(n--){
+            cin >> num >> trash;
+            d.push_back(num);
+            }
+        }
+        else cin >> trash;
+        
         int flag = 0,err=0;
         for(int i=0;i<s.length();i++){
-            if(d.size()==0 && s[i]=='D'){
+            if(s[i]=='R' && d.size()!=0) flag++;
+            else if(d.size()==0 && s[i]=='D'){
                 err = 1;
                 break;
             }
-            if(s[i]=='R') flag++;
-            else{
+            else if(s[i]=='D'){
                 if(flag%2==0) d.pop_front();
                 else d.pop_back();
             }
@@ -30,19 +34,22 @@ int main(){
         if(err==1) cout << "error\n";
         else{
             cout << "[";
-            if(flag%2==0){
-                while(d.size()>1){
-                    cout << d.front() << ",";
-                    d.pop_front();
+            if(d.size()!=0){
+                if(flag%2==0){
+                    while(d.size()>1){
+                        cout << d.front() << ",";
+                        d.pop_front();
+                    }
                 }
-            }
-            else{
-                while(d.size()>1){
-                    cout << d.back() << ",";
-                    d.pop_back();
+                else{
+                    while(d.size()>1){
+                        cout << d.back() << ",";
+                        d.pop_back();
+                    }
                 }
+                cout << d.front();
             }
-            cout << d.front() << "]\n";
+            cout << "]\n";
         }
     }
     return 0;
