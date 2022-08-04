@@ -1,0 +1,3 @@
+double ended queue
+양쪽끝에서 삽입 삭제가 가능 // 때문에 처음 원소의 시작이 index 0 이아니라 index 배열의 중간이다.
+독특하게도 stl stack queue에서는 제일 앞/뒤가 아닌 나머지 원소들의 확인/변경이 가능
