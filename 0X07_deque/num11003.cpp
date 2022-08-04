@@ -1,23 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+int main() {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
 
-    int n,l,num,cnt;
-    deque<pair<int,int>> d;
-    cin >> n >> l;
-    for(int i=0;i<n;i++){
-        cin >> num;
-        if(d.size()!=0){
+  int n, l;
+  deque<pair<int, int>> dq;
 
-        }
-        else d.push_back(num,i);
+  cin >> n >> l;
+
+  for (int i = 0; i < n; ++i) {
+    int num;
+    cin >> num;
+
+    while (!dq.empty() && dq.back().second >= num) {
+        dq.pop_back();
+    }
+    dq.push_back({i, num});
+    if (dq.front().first <= i - l) {
+        dq.pop_front();
     }
 
-    return 0;
+    cout << dq.front().second << " ";
+  }
+
+  return 0;
 }
-
-1
-
- 
