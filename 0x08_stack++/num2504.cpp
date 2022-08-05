@@ -5,7 +5,7 @@ int main(){
     cin.tie(NULL);
 
     string s;
-    int temp1=0,temp2=0 res=0;
+    int temp1=0,temp2=0,res=0;
     stack<pair<char,int>> st;
 
     cin >> s;
@@ -18,20 +18,16 @@ int main(){
             }
         }
         else if(!st.empty() && s[i]==')'){
-            if(i-st.top().second==1 && st.top().first == '(') temp += 2;
+            if(i-st.top().second==1 && st.top().first == '(') temp1 += 2;
             else if(st.top().first == '[') break;
-            else temp *= 2;
+            else temp1 *= 2;
             st.pop();
         }
         else if(!st.empty() && s[i]==']'){
-            if(i-st.top().second==1 && st.top().first == '[') temp += 3;
+            if(i-st.top().second==1 && st.top().first == '[') temp1 += 3;
             else if(st.top().first == '(') break;
-            else temp *= 3;
+            else temp1 *= 3;
             st.pop();
-        }
-        if(st.empty()){
-            res += temp;
-            temp = 0;
         }
     }
     if(st.empty()) cout << res;
