@@ -10,7 +10,11 @@ int main(){
 
     cin >> s;
     for(int i=0;i<s.length();i++){
-        if(s[i]=='(' || s[i]=='[') st.push({s[i],i});
+        if(s[i]=='(' || s[i]=='['){
+            st.push({s[i],i});
+            temp2 += temp1;
+            temp1 =0;
+        }
         else if(st.empty()){
             if(s[i]==')' || s[i]==']'){
                 st.push({s[i],i});
@@ -18,14 +22,31 @@ int main(){
             }
         }
         else if(!st.empty() && s[i]==')'){
-            if(i-st.top().second==1 && st.top().first == '(') temp1 += 2;
+            if(i-st.top().second==1 && st.top().first == '('){
+                if(st.size()==1) res += 2;
+                else temp1 += 2;
+            }
             else if(st.top().first == '[') break;
+            else if(st.size()==1 && st.top().first == '('){
+                res += (temp1+temp2)*2;
+                temp1 = 0;
+                temp2 = 0;
+            }
             else temp1 *= 2;
             st.pop();
+            if(st.empty()) temp2 += temp1;
         }
         else if(!st.empty() && s[i]==']'){
-            if(i-st.top().second==1 && st.top().first == '[') temp1 += 3;
+            if(i-st.top().second==1 && st.top().first == '['){
+                if(st.size()==1) res += 3;
+                else temp1 += 3;
+            }
             else if(st.top().first == '(') break;
+            else if(st.size()==1 && st.top().first == '['){
+                res += (temp1+temp2)*2;
+                temp1 = 0;
+                temp2 = 0;
+            }
             else temp1 *= 3;
             st.pop();
         }
