@@ -1,0 +1,42 @@
+1) 전처리 단계
+2) 컴파일 단계
+3) 어셈블 단계
+4) 링크 단계
+
+<gcc 에서 자주 사용되는 옵션>
+
+-o 옵션
+    gcc -o file file.c || gcc file.c -o file 이라 입력하면 출력파일이 file이라는 이름으로
+    생성되어진다. 이를 실행하려면 ./file 이라하면 된다. -o를 생략하면 a.out으로 실행파일이
+    생성되어진다.
+
+-E 옵션
+    컴파일의 첫 단계인 전처리까지만 실행한 결과를 화면에 출력한다, 파일로는 저장되지 않는다.
+
+-c 옵션
+    test.c 파일을 gcc -c test.c 를 입력하면 test.o 라는 오브젝트 파일이 생성되어진다.
+    이후 gcc test.o -o test를 하면 test라는 출력파일이 생성되어진다.
+
+    c옵션의 경우 하나의 프로그램을 여러 파일로 분리해 작성한 다음 함께 컴파일 하는
+    "분리 컴파일"시 많이 사용된다. 예시로 main.c 와 hi.c 두개의 소스로 구성되어진 프로그램을
+    보면
+
+    // main.c
+    extern void hi();
+
+    main(){
+        hi();
+    }
+    // hi.c
+    #include<stdio.h>
+
+    void hi(){
+        printf("Hi\n");
+    }
+
+    gcc main.c hi.c -o test 로 분리 컴파일을 할 수 있다.
+    다른 방법으로
+    gcc -c main.c
+    gcc -c hi.c
+    gcc main.o hi.o -o test
+    와 같이 각 파일 별로 오브젝트 파일을 만들고 나중에 링크하는 것도 가능하다.
