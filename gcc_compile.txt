@@ -40,3 +40,24 @@
     gcc -c hi.c
     gcc main.o hi.o -o test
     와 같이 각 파일 별로 오브젝트 파일을 만들고 나중에 링크하는 것도 가능하다.
+
+-I 옵션
+    -I옵션은 c소스가 표준 디렉토리가 아닌 위치에 있는 헤더 파일을 가질 때 그 디렉토리 위치를
+    지정해준다. myheader.h 파일ㅇ이 age.c 파일이 있는 디렉토리의 하위 디렉토리인 mydir에 있다
+    하자.
+    // age.c
+    #include<stdio.h>
+    #include "myheader.h"
+    main(){
+        printf("%d\n",AGE);
+    }
+    // myheader.h
+    #define AGE 20
+
+    그냥 gcc age.c를 하면 컴파일 오류가 나기때문에 i옵션을 사용하여 디렉토리 위치를 지정해 주어
+    야 한다.
+
+    gcc age.c -Imydir
+    ./a.out
+
+    
