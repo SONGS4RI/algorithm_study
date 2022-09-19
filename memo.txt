@@ -16,7 +16,8 @@ vim과 shell을 이용한 리눅스 사용법 익히기
 
 unistd.h
 
-리눅스 c 파일 입출력
+리눅스 c 파일 입출력 ( 생각보다 많이 다름)
 
 argc **argv
 https://m.blog.naver.com/sharonichoya/220501242693
+

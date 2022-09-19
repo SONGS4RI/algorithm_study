@@ -1,5 +1,33 @@
 리눅스는 유닉스의 운영체제와 상당히 유사하지만 공공의 목적을 위한
-것이라 생각하면 된다.
+것이라 생각하면 된다. 기본적인 리눅스 명령어들은 숙지해 놓자.
+많이쓰는 명령어
+    {
+        man : 리눅스 명령어의 사용법
+        mkdir : 디렉토리 생성
+        ls : 현재 폴더의 폴더, 파일 확인 , ls-l 사장많이 이용
+        pwd : 현재 디렉토리 출력
+        cd : change directory
+        echo : 텍스트 출력
+        sudo : 다른 사용자의 권한 얻기
+        cp : copy
+        mv : move
+        clear : cls
+        cat : 파일 텍스츠 출력, 여러 파일 붙혀서 실행 가능
+        history : -i30처럼 특정 번째 실행 했던 명령어를 다시 실행 가능
+        find : 파일 및 디렉토리 검색
+        export : 환경변수 설정
+        cut -f -d: d: delimeter -f:field. delimeter를 기준으로 잘라 field번째 값만 출력
+        redirection(>,>>) : 프로그램의 출력(stdout)을 다른 파일이나 스트림으로 전달
+        pipe (|) :다른 프로그램의 출력을 다른 프로그램의 입력으로 사용하고 싶은 경우
+        ps : (process status) -f: full format -e: 모든 프로세스
+        curl : Client URL, 웹서버에 요청을 보낼 수 있음
+        grep : 특정 키워드가 포함된 줄만 출력
+        chmod : change mode, 파일 권한 변경
+        nohup :터미널 종료후에도 계속 작업이 유지하도록 실행. nohup helloword.py & (백그라운드 실행 필요)
+        scp : Secure Copy, ssh로 연결된 호스트간 파일 복사 -r: 재귀적 복사 (하위 디렉토리를 포함해서 복사한다.) -P: ssh 포트 지정 -i: SSH 설정을 활용해 실행
+        df : Disk Free, 현재 사용 중인 디스크 용량 확인
+    }
+
 
 유닉스 파일 시스템은 4개의 주요 블록으로 구성하고 있다.
 운영체제를 부팅하기 위해 필요한 부트 블록과 파일 시스템의 크기를
@@ -47,4 +75,6 @@ O_NONBLOCK : 논 블로킹 모드로 작업
 O_SYNC : 쓰기 작업을 요청하면 물리적인 파일에 쓰여짐
 O_EXCL : O_CREAT 모드와 함께사용하면 파일이 존재하는지 확인하여
 존재 하면 -1 반환
+
+
 
