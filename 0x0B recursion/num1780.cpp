@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int a = 0, b=0, c=0, n;
+int a=0, b=0, c=0, n;
 int board[2187][2187] = {0,};
 
-bool is_same(int n, int x, int y)
+bool is_samenum(int n, int x, int y)
 {
     for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
@@ -16,7 +16,7 @@ bool is_same(int n, int x, int y)
 
 void recur(int n, int x, int y) // a = -1 cnt, b = 0 cnt , ....
 {
-    if(is_same(n,x,y))
+    if(is_samenum(n,x,y))
     {
         if(board[x][y] == -1) a++;
         else if(board[x][y] == 0) b++;
@@ -26,9 +26,7 @@ void recur(int n, int x, int y) // a = -1 cnt, b = 0 cnt , ....
     // 9µîºĞ
     for(int i=0; i<3; i++)
         for(int j=0; j<3; j++)
-        {
-            recur(n/3, n/3*i, n/3*j)
-        }
+            recur(n/3, x+n/3*i, y+n/3*j);
 }
 int main(void)
 {
